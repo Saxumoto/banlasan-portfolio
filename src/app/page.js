@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import AchievementsSection from "../components/AchievementsSection";
 import JournalSection from "../components/JournalSection";
 import CertificatesSection from "../components/CertificatesSection";
+import GallerySection from "../components/GallerySection"; // <--- 1. Import it
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <AboutSection />
         <ProjectsSection />
         <JournalSection />
+        <GallerySection /> {/* <--- 2. Add it here */}
         <CertificatesSection />
         <EmailSection />
       </div>

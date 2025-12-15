@@ -30,10 +30,10 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
+          {/* This is the fixed paragraph part */}
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
-              I am a third-year BSIT student at Holy Cross of Davao College with a strong passion for web development and design. I enjoy creating visually appealing and user-friendly websites using modern technologies like React, Next.js, and Tailwind CSS. I am always eager to learn new skills, collaborate with others, and take on new challenges in the tech industry. Let’s connect and build something amazing together!
-          </p>
+            An aspiring BSIT student with a passion for web development and
+            design.
           </p>
           <div>
             <Link

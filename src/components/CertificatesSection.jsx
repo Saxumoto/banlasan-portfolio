@@ -35,7 +35,7 @@ const certificatesList = [
     id: 5,
     title: "Gemini Certified Student Qualification",
     issuer: "Google for Education",
-    date: "2023",
+    date: "2025",
     image: "/images/gemini_cert.png", // Make sure to put your image here
   },
   {

@@ -1,79 +1,43 @@
-"use client";
-import React, { useRef } from "react";
-import ProjectCard from "./ProjectCard";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { CodeBracketIcon, EyeIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
-const projectsData = [
-  {
-    id: 1,
-    title: "Payroll Management System",
-    description: "A comprehensive payroll management system built with Flask, featuring employee management, attendance tracking, leave management, and automated payroll processing.",
-    image: "/images/im.png", // Ensure this image exists
-    gitUrl: "https://github.com/Saxumoto/IM_Payroll_System",
-    previewUrl: "/",
-  },
-  {
-    id: 2,
-    title: "Davao City Guide",
-    description: "A comprehensive web application for discovering and sharing tourist attractions in Davao City, Philippines. Built with Django, this platform allows users to contribute attractions, rate and review them, and explore the city through an interactive map.",
-    image: "/images/cg.png", // Ensure this image exists
-    gitUrl: "https://github.com/Saxumoto/city_guide",
-    previewUrl: "/",
-  },
-  {
-    id: 3,
-    title: "My Portfolio Website",
-    description: "A portfolio website showcasing my projects and skills, built with React and Tailwind CSS.",
-    image: "/images/cg.png", // Ensure this image exists
-    gitUrl: "https://github.com/Saxumoto/banlasan-portfolio",
-    previewUrl: "/",
-  },
-];
-
-const ProjectsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const cardVariants = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-  };
+const ProjectCard = ({ imgUrl, title, description, gitUrl, previewUrl }) => {
+  // Only show the Preview (Eye) button if the URL is not "/" and exists
+  const showPreview = previewUrl && previewUrl !== "/";
 
   return (
-    <section id="projects" className="py-12">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        My Projects
-      </h2>
-      
-      {/* Updated Layout:
-        - Changed 'grid' to 'flex' 
-        - Added 'justify-center' to center the cards
-        - Added 'flex-wrap' so they wrap on small screens
-      */}
-      <ul ref={ref} className="flex flex-wrap justify-center gap-8 md:gap-12">
-        {projectsData.map((project, index) => (
-          <motion.li
-            key={index}
-            variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
-            // Added explicit width classes to simulate grid columns but centered
-            className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2.5rem)] max-w-md"
+    <div className="h-full flex flex-col">
+      <div
+        className="h-52 md:h-72 rounded-t-xl relative group flex-shrink-0"
+        style={{ background: `url(${imgUrl})`, backgroundSize: "cover", backgroundPosition: "center" }}
+      >
+        <div className="overlay items-center justify-center absolute top-0 left-0 w-full h-full bg-[#18181883] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500 ">
+          <Link
+            href={gitUrl}
+            target="_blank"
+            className="h-14 w-14 mr-2 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
           >
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
-            />
-          </motion.li>
-        ))}
-      </ul>
-    </section>
+            <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
+          </Link>
+          
+          {showPreview && (
+            <Link
+              href={previewUrl}
+              target="_blank" // Opens the full image in a new tab
+              className="h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white group/link"
+            >
+              <EyeIcon className="h-10 w-10 text-[#ADB7BE] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  cursor-pointer group-hover/link:text-white" />
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className="text-white rounded-b-xl mt-3 bg-[#181818] py-6 px-4 flex-grow">
+        <h5 className="text-xl font-semibold mb-2">{title}</h5>
+        <p className="text-[#ADB7BE]">{description}</p>
+      </div>
+    </div>
   );
 };
 
-export default ProjectsSection;
+export default ProjectCard;

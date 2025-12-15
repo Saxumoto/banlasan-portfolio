@@ -8,17 +8,19 @@ const projectsData = [
     id: 1,
     title: "Payroll Management System",
     description: "A comprehensive payroll management system built with Flask, featuring employee management, attendance tracking, leave management, and automated payroll processing.",
-    image: "/images/im.png", // Ensure this image exists
+    image: "/images/im.png", 
     gitUrl: "https://github.com/Saxumoto/IM_Payroll_System",
-    previewUrl: "/",
+    // CHANGED: Point to the image file so the "Eye" icon opens the full picture
+    previewUrl: "/images/im.png", 
   },
   {
     id: 2,
     title: "Davao City Guide",
     description: "A comprehensive web application for discovering and sharing tourist attractions in Davao City, Philippines. Built with Django, this platform allows users to contribute attractions, rate and review them, and explore the city through an interactive map.",
-    image: "/images/cg.png", // Ensure this image exists
+    image: "/images/cg.png",
     gitUrl: "https://github.com/Saxumoto/city_guide",
-    previewUrl: "/",
+    // CHANGED: Point to the image file so the "Eye" icon opens the full picture
+    previewUrl: "/images/cg.png", 
   },
 ];
 
@@ -37,8 +39,11 @@ const ProjectsSection = () => {
         My Projects
       </h2>
       
-      {/* Grid Layout (No Filter Buttons) */}
-      <ul ref={ref} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+      {/* CHANGED: Switched from 'grid' to 'flex' with 'justify-center'.
+         This ensures that if you only have 2 items, they are centered on the screen 
+         instead of sticking to the left.
+      */}
+      <ul ref={ref} className="flex flex-wrap justify-center gap-8 md:gap-12">
         {projectsData.map((project, index) => (
           <motion.li
             key={index}
@@ -46,6 +51,8 @@ const ProjectsSection = () => {
             initial="initial"
             animate={isInView ? "animate" : "initial"}
             transition={{ duration: 0.3, delay: index * 0.4 }}
+            // Added explicit widths to mimic the grid look but keep centering working
+            className="w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.33%-2rem)] max-w-md"
           >
             <ProjectCard
               key={project.id}

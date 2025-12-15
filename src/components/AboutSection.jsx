@@ -9,10 +9,13 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>JavaScript</li>
-        <li>React</li>
-        <li>Next.js</li>
-        <li>Tailwind CSS</li>
+        <li>Programming: JavaScript, Python, HTML, CSS, SQL, Django, Flask, React, Next.js, Tailwind CSS</li>
+        <li>UI/UX Design</li>
+        <li>Web Development</li>
+        <li>Problem Solving</li>
+        <li>Communication Skills</li>
+        <li>Collaboration</li>
+        <li>Teamwork</li>
       </ul>
     ),
   },
@@ -21,7 +24,9 @@ const TAB_DATA = [
     id: "education",
     content: (
       <ul className="list-disc pl-2">
-        <li>BSIT Student</li>
+        <li>BSIT Student at Holy Cross of Davao College</li>
+        <li>From A.Y 2023 - Present</li>
+
       </ul>
     ),
   },
@@ -30,7 +35,12 @@ const TAB_DATA = [
     id: "certifications",
     content: (
       <ul className="list-disc pl-2">
-        <li>Web Development</li>
+        <li>Educational Tour Certificate of Completion</li>
+        <li>DevFest Certificate of Participation</li>
+        <li>Computer Hardware Basics Course Completion</li>
+        <li>Operating System Basics Course Completion</li>
+        <li>Gemini Certified Student Qualification</li>
+        <li>Information Management Certification</li>
       </ul>
     ),
   },
@@ -44,9 +54,9 @@ const AboutSection = () => {
   return (
     <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <div className="relative h-full w-full flex justify-center md:justify-start">
+        <div className="relative h-full w-full flex justify-center md:justify-center">
           <div className="rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[350px] lg:h-[350px] relative overflow-hidden">
-            <Image src="/images/about-img.jpg" alt="about image" className="object-cover" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+            <Image src="/images/abtme.jpg" alt="about image" className="object-cover" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
           </div>
         </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">

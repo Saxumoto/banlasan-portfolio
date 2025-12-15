@@ -80,7 +80,7 @@ const JournalSection = () => {
                 />
                 
                 {/* Overlay only appears on HOVER, showing the 'View Image' text */}
-                <div className="absolute inset-0  bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                   <span className="text-white opacity-0 group-hover:opacity-100 font-medium bg-black bg-opacity-50 px-3 py-1 rounded-full border border-white">
                     View Image
                   </span>

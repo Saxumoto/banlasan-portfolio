@@ -2,10 +2,9 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 export async function POST(req) {
-  // 1. Initialize Resend INSIDE the function to prevent build crashes
+  // 1. Initialize Resend INSIDE the function (Safety Check)
   const apiKey = process.env.RESEND_API_KEY;
-  
-  // Optional: Safety check to avoid crashing if key is missing at runtime
+
   if (!apiKey) {
     return NextResponse.json({ error: "Missing Resend API Key" }, { status: 500 });
   }
